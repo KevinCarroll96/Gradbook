@@ -1,21 +1,28 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Kinvey } from 'kinvey-nativescript-sdk';
 import { RouterExtensions } from "nativescript-angular/router";
 import { NgZone } from "@angular/core";
 import { Page } from "tns-core-modules/ui/page"
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import * as app from "tns-core-modules/application";
 @Component({
     selector: "Login",
     moduleId: module.id,
     templateUrl: "./login.component.html"
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-    constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page) {
+    //constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page) {
+    constructor() {
+/*
         this.page.actionBarHidden = true;
         this.page.backgroundSpanUnderStatusBar = true;
         this.page.className = "page-login-container";
         this.page.statusBarStyle = "dark";
+        */
+    }
+    ngOnInit(): void {
+        // Init your component properties here.
     }
 
     login() {

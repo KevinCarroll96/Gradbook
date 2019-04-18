@@ -1,0 +1,27 @@
+<FlexboxLayout class="page page-signup" backgroundImage="res://mesh">
+    <StackLayout class="flexbox-item company-name-container">
+        <Label class="t-25 company-name" text="GradBook"></Label>
+        <Label class="t-30 app-name" text="Registration"></Label>
+    </StackLayout>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/North_Texas_Mean_Green_logo.svg/1200px-North_Texas_Mean_Green_logo.svg.png" height = "300" width = "300" alt="Subscribe to Pewdiepie">
+    <StackLayout class="flexbox-item">
+
+      <FacebookLoginButton (login)="onLogin($event)"></FacebookLoginButton>
+      <Button class="btn-FB-login" text="Login with Facebook" (tap)="login()"></Button>
+
+        <StackLayout class="signup-input-field">
+          <Label class="t-35 email signup" text="Or sign up with Email"></Label>
+        </StackLayout>
+
+        <StackLayout class="signup-Email-input-field">
+          <TextField hint="Email" ...></TextField>
+        </StackLayout>
+
+        <StackLayout class="signup-Password-input-field">
+          <TextField hint="Password" ...></TextField>
+        </StackLayout>
+
+      <Button class="btn btn-register btn-rounded-sm font-weight-bold t-18" (tap)="register()" text="Register"></Button>
+      <Button class="btn btn-signup-login btn-rounded-sm font-weight-bold t-18" (tap)="return_to_login()" text="Back to Login"></Button>
+    </StackLayout>
+</FlexboxLayout>
