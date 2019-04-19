@@ -4,8 +4,8 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { NgZone } from "@angular/core";
 import { Page } from "tns-core-modules/ui/page";
 
-import * as Facebook from "nativescript-facebook";
-import { NavigationService } from "../../services/navigation.service";
+//import * as Facebook from "nativescript-facebook";
+import { NavigationService } from "services/navigation.service";
 import * as appSettings from "tns-core-modules/application-settings";
 
 
@@ -16,42 +16,57 @@ import * as appSettings from "tns-core-modules/application-settings";
 })
 export class SignupComponent {
 
-    constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page,private ref: ChangeDetectorRef, private navigationService: NavigationService) {
+    constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page,private ref: ChangeDetectorRef, private navigationService: NavigationService)
+     {
         this.page.actionBarHidden = true;
         this.page.backgroundSpanUnderStatusBar = true;
         this.page.className = "page-social-container";
         this.page.statusBarStyle = "dark";
 
         // have to init after facebook sdk inited
-        setTimeout(() => {
-          this.init();
-        }, 100);
+      //  setTimeout(() => {
+      //    this.init();
+    //    }, 100);
     }
 
-    onLogin(eventData: Facebook.LoginEventData) {
-        if (eventData.error) {
-            alert("Error during login: " + eventData.error);
-        } else {
-            appSettings.setString("access_token", eventData.loginResponse.token);
+   //onLogin(eventData: Facebook.LoginEventData) {
+      onLogin() {
+    //    if (eventData.error) {
+    //        alert("Error during login: " + eventData.error);
+    //    } else {
+          //  appSettings.setString("access_token", eventData.loginResponse.token);
             this.navigationService.go(['home']);
         }
-    }
 
+    register()
+    {
+        this.navigationService.go(['signup']);
+    }
     login() {
-        Facebook.login((error, fbData) => {
-            if (error) {
-                alert("Error during login: " + error.message);
-            } else {
-                appSettings.setString("access_token", fbData.token);
+      //  Facebook.login((error, fbData) => {
+        //    if (error) {
+          //      alert("Error during login: " + error.message);
+      //      } else {
+          //    appSettings.setString("access_token", fbData.token);
                 this.navigationService.go(['home']);
-            }
-        });
+        //    }
+      //  });
     }
 
+        onNavItemTap(navItemRoute: string): void
+        {
+            this._routerExtensions.navigate([navItemRoute],
+              {
+                transition:
+                 {
+                    name: "fade",
+                };
+            });
+          }
     getCurrentAccessToken() {
-        let accessToken = Facebook.getCurrentAccessToken();
+      //  let accessToken = Facebook.getCurrentAccessToken();
 
-        alert("Current access token: " + JSON.stringify(accessToken, null, '\t'));
+      //  alert("Current access token: " + JSON.stringify(accessToken, null, '\t'));
     }
 
     private navigateHome() {

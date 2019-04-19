@@ -4,7 +4,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { SignupRoutingModule } from "./signup-routing.module";
 import { SignupComponent } from "./signup.component";
 
-import { NativeScriptFacebookModule } from "nativescript-facebook/angular";
+//import { NativeScriptFacebookModule } from "nativescript-facebook/angular";
 
 @NgModule({
     imports: [

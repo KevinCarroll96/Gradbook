@@ -29,7 +29,7 @@
           <TextField hint="Password" ...></TextField>
         </StackLayout>
 
-      <Button class="btn btn-login btn-rounded-sm font-weight-bold t-18" (tap)="login()" text="Log In"></Button>
-      <Button class="btn btn-signup btn-rounded-sm font-weight-bold t-18" (tap)="signup()" text="Sign Up"></Button>
+      <Button class="btn btn-login btn-rounded-sm font-weight-bold t-18" [class.selected]="isComponentSelected('/home')" (tap)="onNavItemTap('/home')" text="Log In"></Button>
+      <Button class="btn btn-signup btn-rounded-sm font-weight-bold t-18" [class.selected]="isComponentSelected('/signup')" (tap)="onNavItemTap('/signup')" text="Sign Up"></Button>
     </StackLayout>
 </FlexboxLayout>

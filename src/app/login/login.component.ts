@@ -12,24 +12,24 @@ import * as app from "tns-core-modules/application";
 })
 export class LoginComponent implements OnInit {
 
-    //constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page) {
-    constructor() {
-/*
+    constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page) {
+    //constructor() {
+
         this.page.actionBarHidden = true;
         this.page.backgroundSpanUnderStatusBar = true;
         this.page.className = "page-login-container";
         this.page.statusBarStyle = "dark";
-        */
+
     }
     ngOnInit(): void {
         // Init your component properties here.
     }
 
     login() {
-      if (!this.user.email || !this.user.password) {
-        alert("Please provide both an email address and password.")
-        return;
-      }
+    //  if (!this.User.email || !this.User.password) {
+    //    alert("Please provide both an email address and password.")
+    //    return;
+    //  }
 
        if (Kinvey.User.getActiveUser() == null) {
             Kinvey.User.loginWithMIC()
@@ -70,6 +70,13 @@ export class LoginComponent implements OnInit {
         }
 */    }
 
+    onNavItemTap(navItemRoute: string): void {
+        this._routerExtensions.navigate([navItemRoute], {
+            transition: {
+                name: "fade"
+            }
+        });
+}
     private navigateHome() {
         this.zone.run(() => {
             this._routerExtensions.navigate(["home"], {
