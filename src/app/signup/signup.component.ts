@@ -5,7 +5,7 @@ import { NgZone } from "@angular/core";
 import { Page } from "tns-core-modules/ui/page";
 
 //import * as Facebook from "nativescript-facebook";
-import { NavigationService } from "services/navigation.service";
+//import { NavigationService } from "services/navigation.service";
 import * as appSettings from "tns-core-modules/application-settings";
 
 
@@ -16,7 +16,9 @@ import * as appSettings from "tns-core-modules/application-settings";
 })
 export class SignupComponent {
 
-    constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page,private ref: ChangeDetectorRef, private navigationService: NavigationService)
+  //  constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page,private ref: ChangeDetectorRef, private navigationService: NavigationService)
+    constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page,private ref: ChangeDetectorRef)
+
      {
         this.page.actionBarHidden = true;
         this.page.backgroundSpanUnderStatusBar = true;
@@ -35,12 +37,12 @@ export class SignupComponent {
     //        alert("Error during login: " + eventData.error);
     //    } else {
           //  appSettings.setString("access_token", eventData.loginResponse.token);
-            this.navigationService.go(['home']);
+          //  this.navigationService.go(['home']);
         }
 
     register()
     {
-        this.navigationService.go(['signup']);
+      //  this.navigationService.go(['signup']);
     }
     login() {
       //  Facebook.login((error, fbData) => {
@@ -48,7 +50,7 @@ export class SignupComponent {
           //      alert("Error during login: " + error.message);
       //      } else {
           //    appSettings.setString("access_token", fbData.token);
-                this.navigationService.go(['home']);
+            //    this.navigationService.go(['home']);
         //    }
       //  });
     }
@@ -59,8 +61,8 @@ export class SignupComponent {
               {
                 transition:
                  {
-                    name: "fade",
-                };
+                    name: "fade"
+                }
             });
           }
     getCurrentAccessToken() {
@@ -84,6 +86,6 @@ export class SignupComponent {
     }
     return_to_login() {
             appSettings.clear();
-            this.navigationService.go(['login'], "slideRight");
+            //this.navigationService.go(['login'], "slideRight");
     }
 }
