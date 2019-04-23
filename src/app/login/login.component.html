@@ -1,0 +1,35 @@
+<ActionBar class="action-bar">
+    <!--
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!--
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Login"></Label>
+</ActionBar>
+<FlexboxLayout class="page page-login" backgroundImage="res://mesh">
+    <StackLayout class="flexbox-item company-name-container">
+        <Label class="t-25 company-name" text="The University of North Texas"></Label>
+        <Label class="t-30 app-name" text="GradBook"></Label>
+    </StackLayout>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/North_Texas_Mean_Green_logo.svg/1200px-North_Texas_Mean_Green_logo.svg.png" height = "300" width = "300" alt="Subscribe to Pewdiepie">
+    <StackLayout class="flexbox-item">
+        <StackLayout class="Email-input-field">
+          <TextField hint="Email" ...></TextField>
+        </StackLayout>
+
+        <StackLayout class="Password-input-field">
+          <TextField hint="Password" ...></TextField>
+        </StackLayout>
+
+      <Button class="btn btn-login btn-rounded-sm font-weight-bold t-18" [class.selected]="isComponentSelected('/home')" (tap)="onNavItemTap('/home')" text="Log In"></Button>
+      <Button class="btn btn-signup btn-rounded-sm font-weight-bold t-18" [class.selected]="isComponentSelected('/signup')" (tap)="onNavItemTap('/signup')" text="Sign Up"></Button>
+    </StackLayout>
+</FlexboxLayout>
