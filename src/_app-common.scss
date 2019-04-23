@@ -5,6 +5,213 @@
     font-family: "FontAwesome";
 }
 // Common page class
+/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
+
+/*
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. For a full list of class names in the theme
+refer to http://docs.nativescript.org/ui/theme.
+*/
+@import '~nativescript-theme-core/css/core.light.css';
+
+/* Common */
+.fa {
+    font-family: 'FontAwesome', 'fontawesome-webfont';
+}
+.page {
+    background-color: #ffffff;
+    color: #000000;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-title{
+  margin-top: 20 0 30 0;
+  color: #00853E;
+}
+
+.btn {
+    color: #ffffff;
+    background-color: #00853E;
+    margin: 20 0 30 0;
+}
+
+.btn:highlighted {
+  background-color: #EAEAEA;
+  color: #000000;
+}
+
+.flexbox-item {
+    width: 95%;
+    text-align: center;
+}
+
+.action-bar {
+    background-color: #00853E;
+    color: #ffffff;
+    padding-right: 10;
+}
+.hr {
+    background-color: #3C59FD;
+    width: 95%;
+    margin-top: 21;
+    height: 1;
+}
+
+/* Login */
+.page-login-container {
+    background-color: #3C59FD;
+    android-status-bar-background: #3C59FD;
+}
+.page-login {
+    background-color: #00853E;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: contain;
+    color: #ffffff;
+    flex-direction: column;
+    align-items: center;
+}
+.company-name-container {
+    height: 25%;
+}
+.company-name{
+    margin-top: 40;
+}
+
+.app-name-container {
+    height: 20%;
+}
+.app-name{
+    margin-top: 10;
+    font-size: 40;
+    font-style: "cursive";
+}
+
+.company-logo {
+    flex-grow: 1;
+}
+
+.btn-FB-login{
+  background-color: #4C69BA;
+  background-image: linear-gradient(#4C69BA, #3B55A0);
+/*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
+  text-shadow: 0 -1px 0 #354C8C;
+  margin-bottom: 15;
+}
+
+.Email-input-field{
+  color: #000000;
+  background-color: #ffffff;
+  margin-bottom: 5;
+  margin-top: 10;
+}
+
+.Password-input-field{
+  color: #000000;
+  background-color: #ffffff;
+  margin-bottom: 5;
+}
+
+.login-text {
+    margin-top: 20;
+    white-space: normal;
+}
+
+.btn-login {
+    color: #000000;
+    background-color: #ffffff;
+    margin-top: 10;
+    margin-bottom: 5;
+}
+
+.btn-login:highlighted {
+    background-color: #EAEAEA;
+    color: #000000;
+}
+
+.signup-text {
+    margin-top: 20;
+    white-space: normal;
+}
+
+.btn-signup {
+    color: #ffffff;
+    background-color: #000000;
+    margin-bottom: 10;
+}
+
+.btn-signup:highlighted {
+    background-color: #EAEAEA;
+    color: #000000;
+}
+
+/*  Welcome */
+
+.title {
+    color: #3C59FD;
+    margin-top: 20;
+}
+.flexbox-item Label {
+    margin-bottom: 4;
+}
+
+.menu-container {
+    width: 90%;
+}
+
+.menu-item {
+    vertical-align: top;
+    width: 50%;
+    margin-bottom: 16;
+}
+.menu-icon {
+    width: 90;
+    height: 90;
+    vertical-align: top;
+    border-width: 1;
+    border-radius: 50%;
+    font-size: 36;
+    color: #00853E;
+    background-color: #ffffff;
+    border-color: #d8d8d8;
+}
+
+.action-button{
+    font-size: 20;
+}
+
+.page-signup{
+  background-color: #ffffff;
+}
+
+.signup-Email-input-field{
+  background-color: #ffffff;
+  margin-bottom: 10;
+}
+
+.signup-Password-input-field{
+  background-color: #ffffff;
+}
+
+.btn-register{
+  color: #ffffff;
+  background-color: #000000;
+  margin-top: 5;
+  margin-bottom: 5;
+}
+
+.btn-signup-login{
+  color: #000000;
+  background-color: #ffffff;
+  margin-top: 5;
+  margin-bottom: 15;
+}
+
 .page-content {
     .page-placeholder {
         color: $page-icon-color;
