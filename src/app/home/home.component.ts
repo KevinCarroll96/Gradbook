@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-import { WebView } from "tns-core-modules/ui/web-view";
+//import { WebView } from "tns-core-modules/ui/web-view";
 import {Observable} from "tns-core-modules/data/observable";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import {WebView, LoadEventData} from "tns-core-modules/ui/web-view";

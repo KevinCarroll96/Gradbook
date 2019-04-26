@@ -11,7 +11,7 @@ export class BrowseComponent implements OnInit {
 
 
 }*/
-import { WebView } from "tns-core-modules/ui/web-view";
+//import { WebView } from "tns-core-modules/ui/web-view";
 import {Observable} from "tns-core-modules/data/observable";
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from "@angular/core";
 import { WebView, LoadEventData } from "tns-core-modules/ui/web-view";
@@ -30,7 +30,10 @@ export class BrowseComponent implements AfterViewInit {
     @ViewChild("myWebView") webViewRef: ElementRef;
     //@ViewChild("urlField") urlFieldRef: ElementRef;
     //@ViewChild("labelResult") labelResultRef: ElementRef;
+    ngAfterViewInit()
+    {
 
+    }
     ngOnInit() {
         let webview: WebView = this.webViewRef.nativeElement;
         /*let label: Label = this.labelResultRef.nativeElement;
@@ -47,7 +50,7 @@ export class BrowseComponent implements AfterViewInit {
             label.text = message;
             console.log("WebView message - " + message);
         }*/
-      );
+  //    );
     }
 
     onDrawerButtonTap(): void {

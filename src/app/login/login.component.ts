@@ -8,7 +8,7 @@ import * as app from "tns-core-modules/application";
 @Component({
     selector: "Login",
     moduleId: module.id,
-    templateUrl: "./login.component.html"
+    templateUrl: "./login.component.html",
 })
 export class LoginComponent implements OnInit {
 
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
         this.page.statusBarStyle = "dark";
 
     }
-    ngOnInit(): void z{
+    ngOnInit(): void {
         // Init your component properties here.
     }
 
