@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
         this.page.statusBarStyle = "dark";
 
     }
-    ngOnInit(): void {
+    ngOnInit(): void z{
         // Init your component properties here.
     }
 
