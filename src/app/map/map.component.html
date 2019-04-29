@@ -17,14 +17,13 @@
 
 <StackLayout>
     <GridLayout color ="white" columns="auto" width="100%" height = "8%" >
-        <Button type="button" text = "Map" width = "100%" backgroundColor="green"
-        color="white" [class.selected]="isComponentSelected('/map')" (tap)="onNavItemTap('/map')"></Button>
+        <button type="button" text = "Map" width = "100%" backgroundColor="black" color="white"></button>
     </GridLayout>
     <GridLayout color="white"  columns="auto,auto,auto,auto" rows="auto" width="100%"
         height="10%">
 
-        <Button row="0" width="25%" col=" 0" backgroundColor="black" text="Food"
-            (tap)="food()"></Button>
+        <Button row="0" width="25%" col=" 0" backgroundColor="green" text="Food"
+         [class.selected]="isComponentSelected('../search')" (tap)="onNavItemTap('../search')"></Button>
         <Button row="0" width="25%" col="1" backgroundColor="green" text="Fun"
             (tap)="fun()"></Button>
         <Button row="0" width="25%" col="2" backgroundColor="green" text="Campus"
@@ -33,7 +32,7 @@
             (tap)="lodging()"></Button>
 
     </GridLayout>
-    <GridLayout class="page page-content" >
-        <WebView row="1" #myWebView [src]="webViewSrc"></WebView>
+    <GridLayout >
+        <img src="https://art.unt.edu/sites/default/files/u45/UNT-parking-map.png">
     </GridLayout>
 </StackLayout>

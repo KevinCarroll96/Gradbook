@@ -10,7 +10,8 @@ const routes: Routes = [
     { path: "featured", loadChildren: "~/app/featured/featured.module#FeaturedModule" },
     { path: "settings", loadChildren: "~/app/settings/settings.module#SettingsModule" },
      { path: "signup", loadChildren: "~/app/signup/signup.module#SignupModule" },
-    { path: "login", loadChildren: "~/app/login/login.module#LoginModule" }
+    { path: "login", loadChildren: "~/app/login/login.module#LoginModule" },
+    { path: "map", loadChildren: "~/app/map/map.module#MapModule" }
 
 ];
 

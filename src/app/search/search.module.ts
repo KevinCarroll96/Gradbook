@@ -3,7 +3,8 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { SearchRoutingModule } from "./search-routing.module";
 import { SearchComponent } from "./search.component";
-
+//import { UserService } from "./shared/kinvey.common";
+import { PlacesService } from "../shared/kinvey.places";
 @NgModule({
     imports: [
         NativeScriptCommonModule,
@@ -12,6 +13,10 @@ import { SearchComponent } from "./search.component";
     declarations: [
         SearchComponent
     ],
+    providers: [
+    //  UserService,
+      PlacesService,
+],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

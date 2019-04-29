@@ -3,18 +3,14 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { Kinvey } from 'kinvey-nativescript-sdk';
 @Component({
-    selector: "Search",
+    selector: "Map",
     moduleId: module.id,
-    templateUrl: "./search.component.html"
+    templateUrl: "./map.component.html"
 })
-export class SearchComponent implements OnInit {
+export class MapComponent implements OnInit {
 
     constructor() {
         // Use the component constructor to inject providers.
-    }
-    ngAfterViewInit()
-    {
-
     }
 
     ngOnInit(): void {
