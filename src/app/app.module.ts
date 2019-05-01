@@ -4,8 +4,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-//import { UserService } from "./shared/kinvey.common";
-import { PlacesService } from "./shared/kinvey.places";
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -18,10 +17,6 @@ import { PlacesService } from "./shared/kinvey.places";
     declarations: [
         AppComponent
     ],
-    providers: [
-    //  UserService,
-      PlacesService,
-],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

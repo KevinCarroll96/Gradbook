@@ -7,8 +7,8 @@ https://docs.nativescript.org/angular/ui/professional-ui-components/ng-SideDrawe
     <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
         <StackLayout row="0" class="sidedrawer-header">
             <Label class="sidedrawer-header-image fa" text="&#xf2bd;"  [class.selected]="isComponentSelected('/login')" (tap)="onNavItemTap('/login')" ></Label>
-            <Label class="sidedrawer-header-brand" text="Graduate Student"></Label>
-            <Label class="footnote" text="NewUser@mail.com"></Label>
+            <Label class="sidedrawer-header-brand" text="Andrew Clark"></Label>
+            <Label class="footnote" text="ajclark@gmail.com"></Label>
         </StackLayout>
 
         <ScrollView row="1">
@@ -16,7 +16,7 @@ https://docs.nativescript.org/angular/ui/professional-ui-components/ng-SideDrawe
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/home')" (tap)="onNavItemTap('/home')">
                     <Label col="0" text="&#xf015;" class="fa"></Label>
-                    <Label col="1" text="Home" class="p-r-10"></Label>
+                    <Label col="1" text="Social" class="p-r-10"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/browse')" (tap)="onNavItemTap('/browse')">
@@ -24,7 +24,7 @@ https://docs.nativescript.org/angular/ui/professional-ui-components/ng-SideDrawe
                     <Label col="1" text="News" class="p-r-10"></Label>
                 </GridLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/map')" (tap)="onNavItemTap('/map')">
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/search')" (tap)="onNavItemTap('/search')">
                     <Label col="0" text="&#xf002;" class="fa"></Label>
                     <Label col="1" text="Local Favorites" class="p-r-10"></Label>
                 </GridLayout>

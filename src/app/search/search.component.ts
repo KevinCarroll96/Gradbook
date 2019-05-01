@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
     constructor() {
         // Use the component constructor to inject providers.
     }
+
     ngAfterViewInit()
     {
 
