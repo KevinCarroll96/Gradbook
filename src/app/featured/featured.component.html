@@ -15,9 +15,9 @@
     <Label class="action-bar-title" text="Profile"></Label>
 </ActionBar>
 <StackLayout>
-  <GridLayout class="page page-content">
-      <Label class="page-icon fa" text="&#xf005;"></Label>
-      <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-      
-  </GridLayout>
+
+   <GridLayout>
+      <Button class="btn btn-login btn-rounded-sm font-weight-bold t-18" width="66%" color= "white" backgroundColor = "green" [class.selected]="isComponentSelected('/home')" (tap)="onNavItemTap('/home')" text="Log Out"></Button>
+      </GridLayout>
+
 </StackLayout>
