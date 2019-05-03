@@ -5,6 +5,7 @@ import { NgZone } from "@angular/core";
 import { Page } from "tns-core-modules/ui/page"
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+//import * as data from "~/src/app/users.json";
 @Component({
     selector: "Login",
     moduleId: module.id,
@@ -25,27 +26,24 @@ export class LoginComponent implements OnInit {
         // Init your component properties here.
     }
 
-    login() {
-    //  if (!this.User.email || !this.User.password) {
-    //    alert("Please provide both an email address and password.")
-    //    return;
-    //  }
+    login(email, password) {
+  //    x = JSON.parse(data);
+    //  alert("Email:" + data.users[0].email);
 
-       if (Kinvey.User.getActiveUser() == null) {
-            Kinvey.User.loginWithMIC()
-                .then((user: Kinvey.User) => {
-                    this.navigateHome();
-                    console.log("user: " + JSON.stringify(user));
-                })
-                .catch((error: Kinvey.BaseError) => {
-                    alert("An error occurred. Check your Kinvey settings.");
-                    console.log("error: " + error);
-                });
-        } else {
-            this.navigateHome();
-        }
 
-//      this.navigateHome();
+      if (!email || !password) {
+          alert("Please provide both an email address and password.");
+          return;
+      }
+
+      if (email!="goose@mail.com" && password !="goose")
+      {
+        alert("Invaid Email or Password!\n  Email: goose@mail.net\n Password: goose");
+      }
+      else{
+        this.onNavItemTap("/home");
+      }
+
 
     }
 

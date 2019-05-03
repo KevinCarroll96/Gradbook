@@ -1,0 +1,7 @@
+{
+    "users" :
+     [{
+        "email":"goose@mail.com",
+        "prop2":"goose"
+        }]
+}
