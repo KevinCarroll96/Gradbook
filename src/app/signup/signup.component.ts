@@ -16,13 +16,14 @@ import { User } from "../shared/user.model";
 })
 export class SignupComponent {
   //  constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page,private ref: ChangeDetectorRef, private navigationService: NavigationService)
+    user: User;
     constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page,private ref: ChangeDetectorRef)
      {
         this.page.actionBarHidden = true;
         this.page.backgroundSpanUnderStatusBar = true;
         this.page.className = "page-social-container";
         this.page.statusBarStyle = "dark";
-
+        this.user=new User;
         Kinvey.init({
             appKey: "kid_ryw1a-QDE",
             appSecret: "f36bf51313f84979a7593accd142f012"
@@ -36,28 +37,17 @@ export class SignupComponent {
             });
 
       }
-      signup(email: string , password: string)
+      signup()
       {
         //var user = new Kinvey.User();
-        if(Kinvey.User.getActiveUser()!=null)
-        {
-          const promise1 = Kinvey.User.logout()
-          .then((user) => {
-                console.log("logout successful");
-              }).catch((error: Kinvey.BaseError) => {
-                    alert("logout failed");
-
-                  });
-              }
-          const promise = Kinvey.User.signup({
-              username: "goose@mail.com",
-              password: "goose",
-          })
+        console.log("Username: " + this.user.username);
+        console.log("Password: " + this.user.password);
+          const promise = Kinvey.User.signup(this.user)
             .then((user: Kinvey.User) => {
                   console.log("signup successful");
                   this.onNavItemTap("home");
             }).catch((error: Kinvey.BaseError) => {
-                  alert("Error"+ error);
+                  alert("Error: "+ error);
                   return;
               });
         }
@@ -71,11 +61,6 @@ export class SignupComponent {
                 }
             });
           }
-    getCurrentAccessToken() {
-      //  let accessToken = Facebook.getCurrentAccessToken();
-
-      //  alert("Current access token: " + JSON.stringify(accessToken, null, '\t'));
-    }
 
     private navigateHome() {
         this.zone.run(() => {

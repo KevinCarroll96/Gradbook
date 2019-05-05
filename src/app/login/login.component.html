@@ -22,14 +22,14 @@
     <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/North_Texas_Mean_Green_logo.svg/1200px-North_Texas_Mean_Green_logo.svg.png" height = "300" width = "300" alt="Subscribe to Pewdiepie">
     <StackLayout class="flexbox-item">
         <StackLayout class="Email-input-field">
-          <TextField hint="Email" #email></TextField>
+          <TextField #username hint="Username" autocapitalizationType="none" [(ngModel)]="user.username"></TextField>
         </StackLayout>
 
         <StackLayout class="Password-input-field">
-          <TextField hint="Password" secure="true" #password></TextField>
+          <TextField #password hint="Password" [(ngModel)]="user.password" secure="true"></TextField>
         </StackLayout>
 
-      <Button class="btn btn-login btn-rounded-sm font-weight-bold t-18" [class.selected]="isComponentSelected('/home')" (tap)="login(email.text,password.text)" text="Log In"></Button>
-      <Button class="btn btn-signup btn-rounded-sm font-weight-bold t-18" [class.selected]="isComponentSelected('/signup')" (tap)="onNavItemTap('/signup')" text="Sign Up"></Button>
+      <Button class="btn btn-login btn-rounded-sm font-weight-bold t-18" (tap)="login()" text="Log In"></Button>
+      <Button class="btn btn-signup btn-rounded-sm font-weight-bold t-18"  (tap)="onNavItemTap('/signup')" text="Sign Up"></Button>
     </StackLayout>
 </FlexboxLayout>

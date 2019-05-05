@@ -23,14 +23,14 @@
     <StackLayout class="flexbox-item">
 
         <StackLayout class="signup-Email-input-field">
-          <TextField hint="Email" #email ...></TextField>
+          <TextField hint="Username" [(ngModel)]="user.username" autocapitalizationType="none"></TextField>
         </StackLayout>
 
         <StackLayout class="signup-Password-input-field">
-            <TextField hint="Password"  secure="true" #password ...></TextField>
+            <TextField hint="Password"  secure="true" [(ngModel)]="user.password" ></TextField>
         </StackLayout>
 
-      <Button class="btn btn-register btn-rounded-sm font-weight-bold t-18" (tap)="signup(email,password)" color = "white" text = "Sign Up"></Button>
+      <Button class="btn btn-register btn-rounded-sm font-weight-bold t-18" (tap)="signup()" color = "white" text = "Sign Up"></Button>
       <Button class="btn btn-signup-login btn-rounded-sm font-weight-bold t-18" (tap)="onNavItemTap('login')" text="Back to Login"></Button>
     </StackLayout>
 </FlexboxLayout>

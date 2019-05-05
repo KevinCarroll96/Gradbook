@@ -14,7 +14,7 @@ import { User } from "../shared/user.model";
 })
 
 export class LoginComponent implements OnInit {
-
+    user: User;
     constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page) {
     //constructor() {
 
@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
         this.page.backgroundSpanUnderStatusBar = true;
         this.page.className = "page-login-container";
         this.page.statusBarStyle = "dark";
-
+        this.user= new User();
+        this.user.username = "";
+        this.user.password ="";
        Kinvey.init({
             appKey: "kid_ryw1a-QDE",
             appSecret: "f36bf51313f84979a7593accd142f012"
@@ -41,49 +43,31 @@ export class LoginComponent implements OnInit {
         // Init your component properties here.
     }
 
-    login(email, password) {
+    login() {
+        if(Kinvey.User.getActiveUser()==null){
+          console.log("Username: " + this.user.username);
+          console.log("Password: " + this.user.password);
+          const promise = Kinvey.User.login(this.user.username, this.user.password)
+            .then((user: Kinvey.User) => {
+                console.log("Login Successful");
+                this.onNavItemTap("home");
+            })
+            .catch((error: Kinvey.BaseError) => {
+                alert("Login Failed" + error);
 
-    if (!email || !password) {
-        alert("Please provide both an email address and password.");
-        return;
+              });
+            }
+          else
+          {
+            alert("Error: A user is already logged in!");
+          }
+
     }
-    if(Kinvey.User.getActiveUser()==null){
-      const promise = Kinvey.User.login(email, password)
-        .then((user: Kinvey.User) => {
-          console.log("Login Successful");
-
-        })
-        .catch((error: Kinvey.BaseError) => {
-            alert("Login Failed" + error);
-
-          });
-        }
-      else
-      {
-        alert("Error: A user is already logged in!");
-      }
-
-}
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
     }
 
-    signup() {
-/*        if (Kinvey.User.signup() == null) {
-            Kinvey.User.loginWithMIC()
-                .then((user: Kinvey.User) => {
-                    this.navigateHome();
-                    console.log("user: " + JSON.stringify(user));
-                })
-                .catch((error: Kinvey.BaseError) => {
-                    alert("An error occurred. Check your Kinvey settings.");
-                    console.log("error: " + error);
-                });
-        } else {
-            this.navigateHome();
-        }
-*/    }
 
     onNavItemTap(navItemRoute: string): void {
         this._routerExtensions.navigate([navItemRoute], {
