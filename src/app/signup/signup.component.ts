@@ -30,16 +30,17 @@ export class SignupComponent {
         });
         Kinvey.ping()
             .then((response) => {
-                alert(`Kinvey Ping Success. Kinvey Service is alive`);
+                console.log(`Kinvey Ping Success. Kinvey Service is alive`);
             })
             .catch((error) => {
-                alert(`Kinvey Ping Failed.`);
+                alert(`Kinvey Ping Failed.`+error);
             });
 
       }
       signup()
       {
         //var user = new Kinvey.User();
+
         console.log("Username: " + this.user.username);
         console.log("Password: " + this.user.password);
           const promise = Kinvey.User.signup(this.user)
@@ -50,7 +51,7 @@ export class SignupComponent {
                   alert("Error: "+ error);
                   return;
               });
-        }
+          }
         onNavItemTap(navItemRoute: string): void
         {
             this._routerExtensions.navigate([navItemRoute],
