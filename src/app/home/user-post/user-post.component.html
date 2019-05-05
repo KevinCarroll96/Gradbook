@@ -1,0 +1,11 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Home"></Label>
+</ActionBar>
+
+<StackLayout>
+    <TextField hint=" Post something... "
+     [(ngModel)]="challengeDescription"
+     ></TextField>
+     <button>Post</button>
+    <Label [text]= " challengeDescription "></Label>
+</StackLayout>

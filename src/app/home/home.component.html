@@ -15,6 +15,13 @@
     <Label class="action-bar-title" text="Social"></Label>
 </ActionBar>
 
+
 <GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf015;"></Label>
+        <TextField hint=" Post something... "
+        [(ngModel)]="challengeDescription"
+        ></TextField>
+        
+        <WebView row="1" #myWebView [src]="webViewSrc"></WebView>
+    
+
 </GridLayout>
