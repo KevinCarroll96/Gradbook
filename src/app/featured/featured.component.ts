@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-
+import { Kinvey } from 'kinvey-nativescript-sdk';
 @Component({
     selector: "Featured",
     moduleId: module.id,
@@ -10,7 +10,17 @@ import * as app from "tns-core-modules/application";
 export class FeaturedComponent implements OnInit {
 
     constructor() {
-        // Use the component constructor to inject providers.
+      Kinvey.init({
+          appKey: "kid_ryw1a-QDE",
+          appSecret: "f36bf51313f84979a7593accd142f012"
+      });
+      Kinvey.ping()
+          .then((response) => {
+              alert(`Kinvey Ping Success. Kinvey Service is alive`);
+          })
+          .catch((error) => {
+              alert(`Kinvey Ping Failed.`);
+          });
     }
 
     ngOnInit(): void {
@@ -21,4 +31,21 @@ export class FeaturedComponent implements OnInit {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
     }
+    logout(){
+      if(Kinvey.User.getActiveUser()!=null)
+      {
+
+          const promise1 = Kinvey.User.logout()
+          .then((user) => {
+              console.log("logout successful");
+            }).catch((error: Kinvey.BaseError) => {
+                alert("logout failed");
+
+              });
+            }
+        else
+        {
+          alert("Error: User is not signed in!");
+        }
+      }
 }

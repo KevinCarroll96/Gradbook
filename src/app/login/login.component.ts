@@ -5,12 +5,14 @@ import { NgZone } from "@angular/core";
 import { Page } from "tns-core-modules/ui/page"
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-//import * as data from "~/src/app/users.json";
+import { User } from "../shared/user.model";
+
 @Component({
     selector: "Login",
     moduleId: module.id,
     templateUrl: "./login.component.html",
 })
+
 export class LoginComponent implements OnInit {
 
     constructor(private _routerExtensions: RouterExtensions, private zone: NgZone, private page: Page) {
@@ -21,32 +23,47 @@ export class LoginComponent implements OnInit {
         this.page.className = "page-login-container";
         this.page.statusBarStyle = "dark";
 
+       Kinvey.init({
+            appKey: "kid_ryw1a-QDE",
+            appSecret: "f36bf51313f84979a7593accd142f012"
+        });
+        Kinvey.ping()
+            .then((response) => {
+                console.log(`Kinvey Ping Success. Kinvey Service is alive`);
+            })
+            .catch((error) => {
+                console.log(`Kinvey Ping Failed.`);
+            });
+
+
     }
     ngOnInit(): void {
         // Init your component properties here.
     }
 
     login(email, password) {
-  //    x = JSON.parse(data);
-    //  alert("Email:" + data.users[0].email);
 
-
-      if (!email || !password) {
-          alert("Please provide both an email address and password.");
-          return;
-      }
-
-      if (email!="goose@mail.com" && password !="goose")
-      {
-        alert("Invaid Email or Password!\n  Email: goose@mail.net\n Password: goose");
-      }
-      else{
-        this.onNavItemTap("/home");
-      }
-
-
+    if (!email || !password) {
+        alert("Please provide both an email address and password.");
+        return;
     }
+    if(Kinvey.User.getActiveUser()==null){
+      const promise = Kinvey.User.login(email, password)
+        .then((user: Kinvey.User) => {
+          console.log("Login Successful");
 
+        })
+        .catch((error: Kinvey.BaseError) => {
+            alert("Login Failed" + error);
+
+          });
+        }
+      else
+      {
+        alert("Error: A user is already logged in!");
+      }
+
+}
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
