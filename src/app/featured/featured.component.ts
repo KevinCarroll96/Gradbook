@@ -20,7 +20,7 @@ export class FeaturedComponent implements OnInit {
               console.log(`Kinvey Ping Success. Kinvey Service is alive`);
           })
           .catch((error) => {
-              alert(`Kinvey Ping Failed.`+error);
+              alert(`Kinvey Ping Failed.`);
           });
     }
 
@@ -48,7 +48,7 @@ export class FeaturedComponent implements OnInit {
               console.log("logout successful");
               this.onNavItemTap("home");
             }).catch((error: Kinvey.BaseError) => {
-                alert("logout failed: "+error);
+                alert("logout failed");
 
               });
             }

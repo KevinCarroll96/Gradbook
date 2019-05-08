@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
                 console.log(`Kinvey Ping Success. Kinvey Service is alive`);
             })
             .catch((error) => {
-                alert(`Kinvey Ping Failed.`+error);
+                console.log(`Kinvey Ping Failed.`);
             });
 
 
