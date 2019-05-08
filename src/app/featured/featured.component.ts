@@ -3,6 +3,8 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { Kinvey } from 'kinvey-nativescript-sdk';
 import { RouterExtensions } from "nativescript-angular/router";
+
+import { User } from "../shared/user.model";
 @Component({
     selector: "Featured",
     moduleId: module.id,
@@ -10,7 +12,11 @@ import { RouterExtensions } from "nativescript-angular/router";
 })
 export class FeaturedComponent implements OnInit {
 
-    constructor(private _routerExtensions: RouterExtensions) {
+    user: User;
+    constructor(private _routerExtensions: RouterExtensions)
+    {
+        this.user = new User();
+      this.user.username = "";
       Kinvey.init({
           appKey: "kid_ryw1a-QDE",
           appSecret: "f36bf51313f84979a7593accd142f012"
@@ -46,7 +52,7 @@ export class FeaturedComponent implements OnInit {
           const promise1 = Kinvey.User.logout()
           .then((user) => {
               console.log("logout successful");
-              this.onNavItemTap("home");
+              this.onNavItemTap("login");
             }).catch((error: Kinvey.BaseError) => {
                 alert("logout failed: "+error);
 
@@ -58,10 +64,28 @@ export class FeaturedComponent implements OnInit {
         }
     }
     changeEmail() {
-
+        alert("user name changed");
+       /* if (Kinvey.User.getActiveUser() != null)
+        {
+            alert("user name changed");
+            console.log("Username: " + this.user.username);
+            //console.log("Password: " + this.user.password);
+            const promise = Kinvey.User.update(this.user.username)
+                .then((user: Kinvey.User) => {
+                    console.log("name change successful");
+                    this.onNavItemTap("home");
+                }).catch((error: Kinvey.BaseError) => {
+                    alert("Error: " + error);
+                    return;
+                });
+        }
+        else
+        {
+            alert("Error:User is not signed in!");
+        }*/
     }
 
     changePassword() {
-
+        alert("password changed");
     }
 }
