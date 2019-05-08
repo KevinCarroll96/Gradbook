@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
             .catch((error) => {
                 alert(`Kinvey Ping Failed.`);
             });
-
+            this.getUser();
       }
 
 

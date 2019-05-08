@@ -11,6 +11,9 @@ const routes: Routes = [
     { path: "settings", loadChildren: "~/app/settings/settings.module#SettingsModule" },
      { path: "signup", loadChildren: "~/app/signup/signup.module#SignupModule" },
     { path: "login", loadChildren: "~/app/login/login.module#LoginModule" },
+    { path: "restaurants", loadChildren: "~/app/restaurants/restaurants.module#RestaurantsModule" },
+    { path: "hotels", loadChildren: "~/app/hotels/hotels.module#HotelsModule" },
+    { path: "entertainment", loadChildren: "~/app/entertainment/entertainment.module#EntertainmentModule" },
     { path: "map", loadChildren: "~/app/map/map.module#MapModule" }
 
 ];
